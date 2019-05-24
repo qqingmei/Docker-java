@@ -1,11 +1,11 @@
 FROM java:8
 
-ENV DOCKER_HOME = E:/Java_Docker/
+ENV wkd E:/Java_Docker/
 
-ADD Hello.class $DOCKER_HOME
+WORKDIR ${wkd}
 
-WORKDIR $DOCKER_HOME
+COPY Hello.java .$wkd
 
-RUN javac E:/Java_Docker/Hello.java
+CMD ["cmd", "javac", "E:/Java_Docker/Hello.java"]
 
 CMD ["java","Hello"]
